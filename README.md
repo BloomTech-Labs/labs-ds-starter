@@ -255,7 +255,7 @@ class House(BaseModel):
 async def predict(house: House):
 ```
 
-Deploy your work-in-progress to Heroku. Get to this point by the middle of Build Week. (By Wednesday lunch for full-time cohorts. By end of week one for part-time cohorts.) Now your web teammates can make POST requests to your API endpoint.
+Deploy your work-in-progress to AWS. Now your web teammates can make POST requests to your API endpoint.
 
 In a notebook, train your pipeline and pickle it. See these docs:
 
