@@ -132,26 +132,22 @@ When your API receives a POST request, FastAPI automatically parses and validate
 
 ## Deploy to AWS
 
-Install [AWS Command Line Interface](https://aws.amazon.com/cli/)
+Install [AWS Command Line Interface](https://aws.amazon.com/cli/).
 
-Install AWS Elastic Beanstalk CLI
+Install AWS Elastic Beanstalk CLI:
 ```
 pip install pipx
 pipx install awsebcli
 ```
 
 
-[Configure AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config)
+[Configure AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config):
 
 ```
 aws configure
 ```
 
-[Get your AWS access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey)
-
-Access keys consist of two parts: an access key ID (for example, AKIAIOSFODNN7EXAMPLE) and a secret access key (for example, wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY). You use access keys to sign programmatic requests that you make to AWS if you use AWS CLI commands …
-
-To get access keys, follow the instructions in Managing Access Keys for IAM Users - AWS Identity and Access Management
+[Get your AWS access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey).
 
 Follow [AWS EB docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/single-container-docker.html#single-container-docker.test-remote):
 
@@ -166,7 +162,6 @@ docker push rrherr/labs-ds-starter
 ```
 
 Edit the image name in the  `Dockerrun.aws.json` file:
-
 ```
 {
   "AWSEBDockerrunVersion": "1",
@@ -183,12 +178,8 @@ Edit the image name in the  `Dockerrun.aws.json` file:
 }
 ```
 
-
 Use the EB CLI:
-
 ```
-eb init -i
-
 eb init -p docker labs-ds-starter --region us-east-1
 
 eb create labs-ds-starter
