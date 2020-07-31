@@ -1,7 +1,7 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Image": {
-    "Name": "YOUR-DOCKER-HUB-ID/YOUR-IMAGE-NAME",
+    "Name": "rrherr/labs-ds-starter",
     "Update": "true"
   },
   "Ports": [
@@ -9,5 +9,5 @@
       "ContainerPort": "8000"
     }
   ], 
-  "Command": "uvicorn app.main:app --reload --workers 1 --host 0.0.0.0 --port 8000"
+  "Command": "uvicorn app.main:app --workers 1 --host 0.0.0.0 --port 8000"
 }

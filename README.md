@@ -175,15 +175,13 @@ eb open
 ```
 
 To redeploy:
-```
-git add --all
 
-git commit -m "Your commit message"
+- `git commit ...`
+- `docker build ...`
+- `docker push ...`
+- `eb deploy`
+- `eb open`
 
-eb deploy
-
-eb open
-```
 
 # Machine learning, step-by-step
 
