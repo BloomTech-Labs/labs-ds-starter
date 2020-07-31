@@ -167,9 +167,9 @@ git add --all
 
 git commit -m "Your commit message"
 
-eb init -p docker labs-ds-starter --region us-east-1
+eb init -p docker YOUR-APP-NAME --region us-east-1
 
-eb create labs-ds-starter
+eb create YOUR-APP-NAME
 
 eb open
 ```
