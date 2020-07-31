@@ -132,7 +132,14 @@ When your API receives a POST request, FastAPI automatically parses and validate
 
 ## Deploy to AWS
 
+[Get your AWS access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey).
+
 Install [AWS Command Line Interface](https://aws.amazon.com/cli/).
+
+[Configure AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config):
+```
+aws configure
+```
 
 Install AWS Elastic Beanstalk CLI:
 ```
@@ -140,46 +147,26 @@ pip install pipx
 pipx install awsebcli
 ```
 
-
-[Configure AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-config):
-
-```
-aws configure
-```
-
-[Get your AWS access keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey).
-
 Follow [AWS EB docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/single-container-docker.html#single-container-docker.test-remote):
 
 Use Docker to build the image locally, test it locally, then push it to Docker Hub.
 
 ```
-docker build -f project/Dockerfile -t rrherr/labs-ds-starter ./project
+docker build -f project/Dockerfile -t YOUR-DOCKER-HUB-ID/YOUR-IMAGE-NAME ./project
 
 docker login
 
-docker push rrherr/labs-ds-starter
+docker push YOUR-DOCKER-HUB-ID/YOUR-IMAGE-NAME
 ```
 
-Edit the image name in the  `Dockerrun.aws.json` file:
-```
-{
-  "AWSEBDockerrunVersion": "1",
-  "Image": {
-    "Name": "rrherr/labs-ds-starter",
-    "Update": "true"
-  },
-  "Ports": [
-    {
-      "ContainerPort": "8000"
-    }
-  ], 
-  "Command": "uvicorn app.main:app --reload --workers 1 --host 0.0.0.0 --port 8000"
-}
-```
+Edit the image name in the  `Dockerrun.aws.json` file. Replace the placeholder `YOUR-DOCKER-HUB-ID/YOUR-IMAGE-NAME` with your real values. 
 
 Use the EB CLI:
 ```
+git add --all
+
+git commit -m "Your commit message"
+
 eb init -p docker labs-ds-starter --region us-east-1
 
 eb create labs-ds-starter
@@ -187,6 +174,16 @@ eb create labs-ds-starter
 eb open
 ```
 
+To redeploy:
+```
+git add --all
+
+git commit -m "Your commit message"
+
+eb deploy
+
+eb open
+```
 
 # Machine learning, step-by-step
 
