@@ -257,7 +257,7 @@ In a notebook, train your pipeline and pickle it. See these docs:
 - [Scikit-learn docs - Model persistence](https://scikit-learn.org/stable/modules/model_persistence.html)
 - [Keras docs - Serialization and saving](https://keras.io/guides/serialization_and_saving/)
 
-Get version numbers for every package you used in your pipeline. Install the exact versions of these packages in your virtual environment.
+Get version numbers for every package you used in your pipeline. Add these packages to your `requirements.txt` file with their exact version numbers. Then run `docker-compose build` to re-build your Docker image.
 
 Edit `app/api/predict.py` to unpickle your model and use it in your predict function. 
 
