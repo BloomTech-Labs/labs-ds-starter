@@ -1,8 +1,17 @@
 # Labs DS starter
 
+- [Big picture](#big-picture)
+- [Tech stack](#tech-stack)
+- [Getting started](#getting-started)
+- [File structure](#file-structure)
+- [Deploy to AWS](#deploy-to-aws)
+- [Example: Machine learning]
+
+## Big picture
+
 This template has starter code to deploy an API for your machine learning model and data visualizations.
 
-You can see the [template deployed on AWS](http://labs-ds-starter.eba-ekpya4pr.us-east-1.elasticbeanstalk.com/) as-is.
+You can see the [template deployed on AWS](https://ds.labsscaffolding.dev/) as-is.
 
 This diagram shows two different ways to use Python web frameworks. Both ways are good! The first way is what you learned in DS Unit 3, with Flask. The second way is more common in Build Weeks & Labs. 
 
@@ -83,9 +92,11 @@ You'll see the server response, including:
 
 ```
 project
+├── requirements.txt
 └── app
     ├── __init__.py
     ├── main.py
+    ├── 
     ├── api
     │   ├── __init__.py
     │   ├── predict.py
@@ -96,6 +107,8 @@ project
         ├── test_predict.py
         └── test_viz.py
 ```
+
+`app/requirements.txt` is where you add Python packages that your app requires. Then run `docker-compose build` to re-build your Docker image.
 
 `app/main.py` is where you edit your app's title and description, which are displayed at the top of the your automatically generated documentation. This file also configures "Cross-Origin Resource Sharing", which you shouldn't need to edit. 
 
@@ -116,7 +129,7 @@ When your API receives a POST request, FastAPI automatically parses and validate
 - [calmcode.io video - FastAPI - Type Validation](https://calmcode.io/fastapi/type-validation.html)
 - [pydantic docs - Validators](https://pydantic-docs.helpmanual.io/usage/validators/)
 
-`app/api/viz.py` defines the **Visualization** endpoint. Currently `/viz/{statecode}` accepts GET requests where `{statecode}` is a 2 character US state postal code, and responds with a Plotly figure of the state's unemployment rate, as a JSON string. Create your own Plotly visualizations in notebooks. Then add your code to this source code file. Your web developer teammates can use [react-plotly.js](https://github.com/Lambda-School-Labs/labs-spa-starter/tree/main/src/components/pages/ExampleDataViz) to show the visualizations.
+`app/api/viz.py` defines the **Visualization** endpoint. Currently `/viz/{statecode}` accepts GET requests where `{statecode}` is a 2 character US state postal code, and responds with a Plotly figure of the state's unemployment rate, as a JSON string. Create your own Plotly visualizations in notebooks. Then add your code to this source code file. Your web teammates can use [react-plotly.js](https://github.com/Lambda-School-Labs/labs-spa-starter/tree/main/src/components/pages/ExampleDataViz) to show the visualizations.
 
 ![react-plotly.js animation](https://media.giphy.com/media/j3QG8qVBQcpKvCfO3T/giphy.gif)
 
@@ -161,7 +174,7 @@ docker push YOUR-DOCKER-HUB-ID/YOUR-IMAGE-NAME
 
 Edit the image name in the  `Dockerrun.aws.json` file. Replace the placeholder `YOUR-DOCKER-HUB-ID/YOUR-IMAGE-NAME` with your real values. 
 
-Use the EB CLI:
+Then use the EB CLI:
 ```
 git add --all
 
@@ -182,12 +195,11 @@ To redeploy:
 - `eb deploy`
 - `eb open`
 
+## Example: Machine learning
 
-# Machine learning, step-by-step
+Follow the [getting started](#getting-started) instructions.
 
-Follow the getting started instructions
-
-Edit `app/main.py` to add your API `title` and `description`
+Edit `app/main.py` to add your API `title` and `description`.
 
 ```python
 app = FastAPI(
@@ -250,7 +262,7 @@ class House(BaseModel):
 async def predict(house: House):
 ```
 
-Deploy your work-in-progress to AWS. Now your web teammates can make POST requests to your API endpoint.
+[Deploy your work-in-progress](#deploy-to-aws) to AWS. Now your web teammates can make POST requests to your API endpoint.
 
 In a notebook, train your pipeline and pickle it. See these docs:
 
@@ -262,3 +274,5 @@ Get version numbers for every package you used in your pipeline. Add these packa
 Edit `app/api/predict.py` to unpickle your model and use it in your predict function. 
 
 Now you are ready to re-deploy!
+
+---
