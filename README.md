@@ -99,7 +99,6 @@ project
 └── app
     ├── __init__.py
     ├── main.py
-    ├── 
     ├── api
     │   ├── __init__.py
     │   ├── predict.py
