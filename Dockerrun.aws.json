@@ -1,7 +1,7 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Image": {
-    "Name": "rrherr/labs-ds-starter",
+    "Name": "YOUR-DOCKER-HUB-ID/YOUR-IMAGE-NAME",
     "Update": "true"
   },
   "Ports": [
