@@ -59,10 +59,10 @@ Go to `localhost:8000` in your browser.
 
 You'll see your API documentation:
 
-- Your app's title, "DS API"
-- Your description, "Lorem ipsum"
+- Your app's title
+- Your description
 - An endpoint for POST requests, `/predict`
-- An endpoint for GET requests, `/viz/{statecode}`
+- An endpoint for GET requests, `/viz`
 
 Click the `/predict` endpoint's green button.
 
