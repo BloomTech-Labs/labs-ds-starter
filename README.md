@@ -53,6 +53,8 @@ Run the Docker image
 docker-compose up
 ```
 
+Go to `localhost:8000` in your browser.
+
 ![image](https://user-images.githubusercontent.com/7278219/87965040-c18ba300-ca80-11ea-894f-d51a69d52f8a.png)
 
 You'll see your API documentation:
