@@ -5,7 +5,7 @@
 - [Getting started](#getting-started)
 - [File structure](#file-structure)
 - [Deploy to AWS](#deploy-to-aws)
-- [Example: Machine learning]
+- [Example: Machine learning](#example-machine-learning)
 
 ## Big picture
 
@@ -108,7 +108,7 @@ project
         └── test_viz.py
 ```
 
-`app/requirements.txt` is where you add Python packages that your app requires. Then run `docker-compose build` to re-build your Docker image.
+`requirements.txt` is where you add Python packages that your app requires. Then run `docker-compose build` to re-build your Docker image.
 
 `app/main.py` is where you edit your app's title and description, which are displayed at the top of the your automatically generated documentation. This file also configures "Cross-Origin Resource Sharing", which you shouldn't need to edit. 
 
@@ -129,7 +129,7 @@ When your API receives a POST request, FastAPI automatically parses and validate
 - [calmcode.io video - FastAPI - Type Validation](https://calmcode.io/fastapi/type-validation.html)
 - [pydantic docs - Validators](https://pydantic-docs.helpmanual.io/usage/validators/)
 
-`app/api/viz.py` defines the **Visualization** endpoint. Currently `/viz/{statecode}` accepts GET requests where `{statecode}` is a 2 character US state postal code, and responds with a Plotly figure of the state's unemployment rate, as a JSON string. Create your own Plotly visualizations in notebooks. Then add your code to this source code file. Your web teammates can use [react-plotly.js](https://github.com/Lambda-School-Labs/labs-spa-starter/tree/main/src/components/pages/ExampleDataViz) to show the visualizations.
+`app/api/viz.py` defines the **Visualization** endpoint. Create your own Plotly visualizations in notebooks. Then add your code to this source code file. Your web teammates can use [react-plotly.js](https://github.com/Lambda-School-Labs/labs-spa-starter/tree/main/src/components/pages/ExampleDataViz) to show the visualizations.
 
 ![react-plotly.js animation](https://media.giphy.com/media/j3QG8qVBQcpKvCfO3T/giphy.gif)
 
