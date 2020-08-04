@@ -5,6 +5,7 @@
 - [Getting started](#getting-started)
 - [File structure](#file-structure)
 - [Deploy to AWS](#deploy-to-aws)
+- [Example: Data visualization](#example-data-visualization)
 - [Example: Machine learning](#example-machine-learning)
 
 ## Big picture
@@ -195,6 +196,78 @@ To redeploy:
 - `eb deploy`
 - `eb open`
 
+## Example: Data visualization
+
+Labs projects will use [Plotly](https://plotly.com/python/), a popular visualization library for both Python & JavaScript.
+
+Follow the [getting started](#getting-started) instructions.
+
+Edit `app/main.py` to add your API `title` and `description`.
+
+```python
+app = FastAPI(
+    title='World Metrics DS API',
+    description='Visualize world metrics from Gapminder data',
+    version='0.1',
+    docs_url='/',
+)
+```
+
+Prototype your visualization in a notebook.
+
+```python
+import plotly.express as px
+
+dataframe = px.data.gapminder().rename(columns={
+    'year': 'Year', 
+    'lifeExp': 'Life Expectancy', 
+    'pop': 'Population', 
+    'gdpPercap': 'GDP Per Capita'
+})
+
+country = 'United States'
+metric = 'Population'
+subset = dataframe[dataframe.country == country]
+fig = px.line(subset, x='Year', y=metric, title=f'{metric} in {country}')
+fig.show()
+```
+
+Define a function for your visualization. End with `return fig.to_json()`
+
+Then edit `app/api/viz.py` to add your code.
+
+```python
+import plotly.express as px
+
+dataframe = px.data.gapminder().rename(columns={
+    'year': 'Year', 
+    'lifeExp': 'Life Expectancy', 
+    'pop': 'Population', 
+    'gdpPercap': 'GDP Per Capita'
+})
+
+@app.get('/worldviz')
+async def worldviz(metric, country):
+    """
+    Visualize world metrics from Gapminder data
+
+    ### Query Parameters
+    - `metric`: 'Life Expectancy', 'Population', or 'GDP Per Capita'
+    - `country`: [country name](https://www.gapminder.org/data/geo/), case sensitive
+
+    ### Response
+    JSON string to render with react-plotly.js
+    """
+    subset = dataframe[dataframe.country == country]
+    fig = px.line(subset, x='Year', y=metric, title=f'{metric} in {country}')
+    return fig.to_json()
+```
+
+Test locally, then [deploy to AWS](#deploy-to-aws). 
+
+Your web teammates will re-use the [data viz code & docs in our `labs-spa-starter` repo](https://github.com/Lambda-School-Labs/labs-spa-starter/tree/main/src/components/pages/ExampleDataViz). The web app will call the DS API to get the data, then use `react-plotly.js` to render the visualization. 
+
+
 ## Example: Machine learning
 
 Follow the [getting started](#getting-started) instructions.
@@ -260,9 +333,13 @@ class House(BaseModel):
 
 @router.post('/predict')
 async def predict(house: House):
+    """Predict house prices in California."""
+    X_new = house.to_df()
+    y_pred = 200000
+    return {'predicted_price': y_pred}
 ```
 
-[Deploy your work-in-progress](#deploy-to-aws) to AWS. Now your web teammates can make POST requests to your API endpoint.
+Test locally, then [deploy to AWS](#deploy-to-aws) with your work-in-progress. Now your web teammates can make POST requests to your API endpoint.
 
 In a notebook, train your pipeline and pickle it. See these docs:
 
@@ -273,6 +350,4 @@ Get version numbers for every package you used in your pipeline. Add these packa
 
 Edit `app/api/predict.py` to unpickle your model and use it in your predict function. 
 
-Now you are ready to re-deploy!
-
----
+Now you are ready to re-deploy! 🚀
