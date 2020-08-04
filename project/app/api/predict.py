@@ -30,18 +30,21 @@ class Item(BaseModel):
 @router.post('/predict')
 async def predict(item: Item):
     """
-    Make random baseline predictions for classification problem. 🔮
+    Make random baseline predictions for classification problem 🔮
 
-    Inputs
+    ### Request Body
     - `x1`: positive float
     - `x2`: integer
     - `x3`: string
 
-    Returns
-    - `prediction`: `true` or `false`, at random
-    - `predict_proba` float between 0.5 and 1, 
-    to represent the predicted class's probability
+    ### Response
+    - `prediction`: boolean, at random
+    - `predict_proba`: float between 0.5 and 1.0, 
+    representing the predicted class's probability
+
+    Replace the placeholder docstring and fake predictions with your own model.
     """
+
     X_new = item.to_df()
     log.info(X_new)
     y_pred = random.choice([True, False])
