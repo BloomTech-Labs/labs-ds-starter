@@ -268,6 +268,19 @@ Test locally, then [deploy to AWS](#deploy-to-aws).
 
 Your web teammates will re-use the [data viz code & docs in our `labs-spa-starter` repo](https://github.com/Lambda-School-Labs/labs-spa-starter/tree/main/src/components/pages/ExampleDataViz). The web app will call the DS API to get the data, then use `react-plotly.js` to render the visualization. 
 
+### Plotly Python docs
+- [Example gallery](https://plotly.com/python/)
+- [Setting Graph Size](https://plotly.com/python/setting-graph-size/)
+- [Styling Plotly Express Figures](https://plotly.com/python/styling-plotly-express/)
+- [Text and font styling](https://plotly.com/python/v3/font/)
+- [Theming and templates](https://plotly.com/python/templates/)
+
+### Plotly JavaScript docs
+- [Lambda labs-spa-starter data viz code & docs](https://github.com/Lambda-School-Labs/labs-spa-starter/tree/main/src/components/pages/ExampleDataViz)
+- [Example gallery](https://plotly.com/javascript/)
+- [Fundamentals](https://plotly.com/javascript/plotly-fundamentals/)
+- [react-plotly.js](https://plotly.com/javascript/react/)
+
 
 ## Example: Machine learning
 
