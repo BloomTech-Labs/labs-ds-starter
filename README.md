@@ -276,7 +276,7 @@ Your web teammates will re-use the [data viz code & docs in our `labs-spa-starte
 - [Theming and templates](https://plotly.com/python/templates/)
 
 #### Plotly JavaScript docs
-- [Lambda labs-spa-starter data viz code & docs](https://github.com/Lambda-School-Labs/labs-spa-starter/tree/main/src/components/pages/ExampleDataViz)
+- [Lambda `labs-spa-starter` data viz code & docs](https://github.com/Lambda-School-Labs/labs-spa-starter/tree/main/src/components/pages/ExampleDataViz)
 - [Example gallery](https://plotly.com/javascript/)
 - [Fundamentals](https://plotly.com/javascript/plotly-fundamentals/)
 - [react-plotly.js](https://plotly.com/javascript/react/)
