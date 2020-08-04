@@ -66,7 +66,7 @@ You'll see your API documentation:
 
 Click the `/predict` endpoint's green button.
 
-![image](https://user-images.githubusercontent.com/7278219/87965845-0532dc80-ca82-11ea-9690-b4c195a648d6.png)
+![image](https://user-images.githubusercontent.com/7278219/89348390-1bd85680-d672-11ea-90f8-26b9e65cbe86.png)
 
 You'll see the endpoint's documentation, including:
 
