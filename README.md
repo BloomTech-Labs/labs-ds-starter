@@ -62,7 +62,7 @@ You'll see your API documentation:
 - Your app's title, "DS API"
 - Your description, "Lorem ipsum"
 - An endpoint for POST requests, `/predict`
-- An endpoint for GET requests, `/vis/{statecode}`
+- An endpoint for GET requests, `/viz/{statecode}`
 
 Click the `/predict` endpoint's green button.
 
