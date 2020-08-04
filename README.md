@@ -55,7 +55,7 @@ docker-compose up
 
 Go to `localhost:8000` in your browser.
 
-![image](https://user-images.githubusercontent.com/7278219/87965040-c18ba300-ca80-11ea-894f-d51a69d52f8a.png)
+![image](https://user-images.githubusercontent.com/7278219/89348227-cef48000-d671-11ea-90b1-d02cd9af8fbc.png)
 
 You'll see your API documentation:
 
