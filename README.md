@@ -247,7 +247,7 @@ dataframe = px.data.gapminder().rename(columns={
     'gdpPercap': 'GDP Per Capita'
 })
 
-@app.get('/worldviz')
+@router.get('/worldviz')
 async def worldviz(metric, country):
     """
     Visualize world metrics from Gapminder data
