@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
+from app import db, ml, viz
+
 description = """
 To use the interactive docs:
 - Click on an endpoint
@@ -13,9 +15,13 @@ To use the interactive docs:
 
 app = FastAPI(
     title='DS API',
-    description=description, 
+    description=description,
     docs_url='/',
 )
+
+app.include_router(db.router, tags=['Database'])
+app.include_router(ml.router, tags=['Machine Learning'])
+app.include_router(viz.router, tags=['Visualization'])
 
 app.add_middleware(
     CORSMiddleware,
