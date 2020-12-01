@@ -11,6 +11,7 @@ database_url = os.getenv('DATABASE_URL', default='sqlite:///temporary.db')
 engine = create_engine(database_url)
 router = APIRouter()
 
+
 @router.get('/info')
 async def get_url():
     """Verify we can connect to the database, 
