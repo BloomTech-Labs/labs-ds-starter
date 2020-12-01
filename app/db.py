@@ -17,7 +17,8 @@ async def get_url():
     """Verify we can connect to the database, 
     and return the database URL, in this format:
 
-    dialect://user:password@host/dbname"""
+    dialect://user:password@host/dbname
+    """
     with engine.connect() as con:
         url_without_password = con.engine.url.__repr__()
         return {'url': url_without_password}
