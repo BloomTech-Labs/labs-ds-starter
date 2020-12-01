@@ -5,8 +5,10 @@ import uvicorn
 from app import db, ml, viz
 
 description = """
-To use the interactive docs:
-- Click on an endpoint
+Edit your app's title and description. See [https://fastapi.tiangolo.com/tutorial/metadata/](https://fastapi.tiangolo.com/tutorial/metadata/)
+
+To use these interactive docs:
+- Click on an endpoint below
 - Click the **Try it out** button
 - Edit the Request body or any parameters
 - Click the **Execute** button

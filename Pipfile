@@ -10,6 +10,7 @@ pytest = "*"
 [packages]
 fastapi = "*"
 uvicorn = {extras = ["standard"], version = "*"}
+sqlalchemy = "*"
 
 [requires]
 python_version = "3"
