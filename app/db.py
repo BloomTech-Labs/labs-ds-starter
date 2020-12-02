@@ -37,4 +37,4 @@ async def get_url(connection=Depends(get_db)):
     The password will be hidden with ***
     """
     url_without_password = repr(connection.engine.url)
-    return {'url': url_without_password}
+    return {'database_url': url_without_password}
