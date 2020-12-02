@@ -1,5 +1,5 @@
 FROM python:3.8-slim-buster
-RUN pip install pipenv
+RUN python -m pip install --upgrade pip && pip install pipenv
 COPY Pipfile* ./
 RUN pipenv install --system --deploy
 COPY ./app ./app
