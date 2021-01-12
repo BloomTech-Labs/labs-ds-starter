@@ -1,4 +1,5 @@
 FROM python:3.8-slim-buster
+ENV PYTHONUNBUFFERED=1
 RUN python -m pip install --upgrade pip && pip install pipenv
 COPY Pipfile* ./
 RUN pipenv install --system --deploy
