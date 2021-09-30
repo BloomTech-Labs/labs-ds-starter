@@ -10,13 +10,13 @@
 ## API Structure
 - API Root `/` Swagger Docs
   - DB Interface `/data/` GET
-    - Count Data `/data/count/` GET
-    - Insert Data `/data/insert/` POST
+    - Count Training Data Rows `/data/count/` GET
+    - Insert Training Data `/data/insert/` POST
       - feature_1: int
       - feature_2: int
       - feature_3: int
       - target: string
-    - Seed Data `/data/seed/` POST
+    - Seed Training Data `/data/seed/` POST
       - num: int
   - ML Interface `/model/` GET
     - Train Method `/model/train/` GET
