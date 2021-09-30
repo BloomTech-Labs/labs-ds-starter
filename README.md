@@ -5,7 +5,7 @@
 - API Framework: FastAPI
 - Database: PostgreSQL
 - ML Model: Sklearn, RandomForestClassifier
-
+- Visualizations: Plotly
 
 ## API Structure
 - API Root `/` Swagger Docs
