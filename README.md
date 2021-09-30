@@ -9,10 +9,22 @@
 
 ## API Structure
 - API Root `/` Swagger Docs
-  - DB Interface `/data/`
-    - Insert Data `/data/insert/`
-    - Count Data `/data/count/`
-    - Seed Data `/data/seed/`
-  - ML Interface `/model/`
-    - Train Method `/model/train/`
-    - Predict Method `/model/predict/`
+  - DB Interface `/data/` GET
+    - Count Data `/data/count/` GET
+    - Insert Data `/data/insert/` POST
+      - feature_1: int
+      - feature_2: int
+      - feature_3: int
+      - target: string
+    - Seed Data `/data/seed/` POST
+      - num: int
+  - ML Interface `/model/` GET
+    - Train Method `/model/train/` GET
+    - Predict Method `/model/predict/` POST
+      - feature_1: int
+      - feature_2: int
+      - feature_3: int
+  - Visualizations
+    - Class by Feature `/vis/class-by-feature/` POST
+      - feature_id: int
+    - Class by Percentage `/vis/class-by-percent/` POST
