@@ -2,6 +2,8 @@
 Labs DS Machine Learning Operations Role
 - Application Programming Interface
 """
+import json
+
 from fastapi import FastAPI, Form
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
@@ -73,6 +75,20 @@ async def model_predict(feature_1: int = Form(...),
         "Prediction": prediction,
         "Confidence": confidence,
     }
+
+
+@API.post("/vis/class-by-feature/")
+def class_by_feature(feature_id: int = Form(...)):
+    return json.loads(
+        API.data.crosstab_vis(feature_id).to_json()
+    )
+
+
+@API.post("/vis/class-by-percent/")
+def class_by_percent():
+    return json.loads(
+        API.data.target_percent_vis().to_json()
+    )
 
 
 API.add_middleware(
