@@ -12,7 +12,7 @@ from app.data import Data
 from app.model import Model
 
 API = FastAPI(
-    title='Lambda School Labs Data Science API',
+    title='BloomTech Labs Data Science API',
     version="0.0.1",
     docs_url='/',
 )
