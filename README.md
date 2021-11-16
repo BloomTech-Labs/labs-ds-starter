@@ -1,4 +1,4 @@
-# Labs Data Science API Template
+# BloomTech Labs Data Science API Template
 
 ## Tech Stack
 - Logic: Python

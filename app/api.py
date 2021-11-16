@@ -1,5 +1,5 @@
 """
-Labs DS Machine Learning Operations Role
+BloomTech Labs DS Machine Learning Operations Role
 - Application Programming Interface
 """
 import json
