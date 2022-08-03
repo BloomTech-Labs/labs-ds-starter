@@ -1,3 +1,25 @@
 .env
-/venv/
-/app/model.job
+venv/
+.venv
+env/
+ENV/
+env.bak/
+venv.bak/
+*.yml
+.idea/
+Pipfile
+Pipfile.lock
+.vscode/
+
+# Python generated files
+**/*.py[cod]
+**/*$py.class
+**/__pycache__/
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+**/.DS_Store
+/notebooks/.ipynb_checkpoints/

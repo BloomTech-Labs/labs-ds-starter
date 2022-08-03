@@ -3,28 +3,58 @@
 ## Tech Stack
 - Logic: Python
 - API Framework: FastAPI
-- Database: PostgreSQL
-- ML Model: Sklearn, RandomForestClassifier
-- Visualizations: Plotly
+- Validation: Pydantic
+- Database: MongoDB
 
 ## API Structure
+All endpoints must return JSON compatible data.
+
 - API Root `/` Swagger Docs
-  - DB Interface `/data/` GET
-    - Count Training Data Rows `/data/count/` GET
-    - Insert Training Data `/data/insert/` POST
-      - feature_1: int
-      - feature_2: int
-      - feature_3: int
-      - target: string
-    - Seed Training Data `/data/seed/` POST
-      - num: int
-  - ML Interface `/model/` GET
-    - Train Method `/model/train/` GET
-    - Predict Method `/model/predict/` POST
-      - feature_1: int
-      - feature_2: int
-      - feature_3: int
-  - Visualizations
-    - Class by Feature `/vis/class-by-feature/` POST
-      - feature_id: int
-    - Class by Percentage `/vis/class-by-percent/` POST
+- API Version `/version` () -> String
+  - HTTP Method: GET
+- Create User `/create-user` (User) -> Bool
+  - HTTP Method: POST
+- Read Users `/read-users` (Query) -> Array[User]
+  - HTTP Method: PUT
+- Update Users `/update-users` (Query, Update) -> Bool
+  - HTTP Method: PATCH
+- Delete Users `/delete-users` (Query) -> Bool
+  - HTTP Method: DELETE
+
+
+## App Structure
+- `/app/` Application Package
+  - `__init__`
+  - `api.py` API File
+  - `database.py` Database Interface
+  - `generators.py` Random Generators
+  - `seeds.py` DB Seed Script
+  - `utilities.py` General Tools
+  - `validation.py` Data Validation Schema
+- `.env` Environment Variables
+- `Procfile` Server Run Script
+- `requirements.txt` Dependencies
+- `run.sh` Local Run Script
+
+## Data Schemas
+
+### User
+- `name` Required String (maxLength: 128 minLength: 3)
+- `age` Required Integer (maximum: 120, minimum: 1)
+- `email` Required String(EmailStr)
+- `active` Optional Boolean
+- `score` Required Float (maximum: 1, minimum: 0)
+
+### UserQuery
+- `name` Optional String (maxLength: 128 minLength: 3)
+- `age` Optional Integer (maximum: 120, minimum: 1)
+- `email` Optional String(EmailStr)
+- `active` Optional Boolean
+- `score` Optional Float (maximum: 1, minimum: 0)
+
+### UserUpdate
+- `name` Optional String (maxLength: 128 minLength: 3)
+- `age` Optional Integer (maximum: 120, minimum: 1)
+- `email` Optional String(EmailStr)
+- `active` Optional Boolean
+- `score` Optional Float (maximum: 1, minimum: 0)
