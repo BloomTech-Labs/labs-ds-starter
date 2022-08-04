@@ -47,7 +47,7 @@ async def read_users(user_query: UserQuery = default_query):
 @API.patch("/update-users")
 async def update_users(user_query: UserQuery = default_query,
                        user_update: UserUpdate = default_update):
-    """ Deletes the specified Users with the updated data
+    """ Updates the specified Users with the UserUpdate data
     @param user_query: UserQuery
     @param user_update: UserUpdate
     @return: Boolean Success """

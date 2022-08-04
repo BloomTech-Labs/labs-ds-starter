@@ -5,6 +5,8 @@
 - API Framework: FastAPI
 - Validation: Pydantic
 - Database: MongoDB
+- Unit Testing: DocTest
+
 
 ## API Structure
 All endpoints must return JSON compatible data.
@@ -36,8 +38,9 @@ All endpoints must return JSON compatible data.
 - `requirements.txt` Dependencies
 - `run.sh` Local Run Script
 
-## Data Schemas
 
+## Data Schemas
+The following classes are used to validate incoming data to the API.
 ### User
 - `name` Required String (maxLength: 128 minLength: 3)
 - `age` Required Integer (maximum: 120, minimum: 1)
