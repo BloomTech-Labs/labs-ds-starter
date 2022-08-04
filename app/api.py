@@ -23,7 +23,7 @@ API.add_middleware(
 
 @API.get("/version")
 async def api_version():
-    """ Returns the current version of the API
+    """ Returns current API version
     @return: String Version """
     return API.version
 
@@ -38,7 +38,7 @@ async def create_user(user: User = default_user):
 
 @API.put("/read-users")
 async def read_users(user_query: UserQuery = default_query):
-    """ Returns an array of users
+    """ Returns array of all matched users
     @param user_query: UserQuery
     @return: Array[User] """
     return API.db.read(user_query.dict(exclude_none=True))
@@ -47,7 +47,7 @@ async def read_users(user_query: UserQuery = default_query):
 @API.patch("/update-users")
 async def update_users(user_query: UserQuery = default_query,
                        user_update: UserUpdate = default_update):
-    """ Updates the specified Users with the UserUpdate data
+    """ Updates all matched users
     @param user_query: UserQuery
     @param user_update: UserUpdate
     @return: Boolean Success """
@@ -59,7 +59,7 @@ async def update_users(user_query: UserQuery = default_query,
 
 @API.delete("/delete-users")
 async def delete_users(user_query: UserQuery = default_query):
-    """ Deletes the specified Users
+    """ Deletes all matched users
     @param user_query: UserQuery
     @return: Boolean Success """
     return API.db.delete(user_query.dict(exclude_none=True))

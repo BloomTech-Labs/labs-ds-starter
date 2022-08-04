@@ -8,6 +8,21 @@ from dotenv import load_dotenv
 
 
 class MongoDB:
+    """ DocTests
+    >>> db = MongoDB()
+    >>> db.create({"Test": True})
+    True
+    >>> db.read({"Test": True})
+    [{'Test': True}]
+    >>> db.update({"Test": True}, {"New Field": True})
+    True
+    >>> db.read({"Test": True})
+    [{'Test': True, 'New Field': True}]
+    >>> db.delete({"Test": True})
+    True
+    >>> db.read({"Test": True})
+    []
+    """
     load_dotenv()
 
     def _collection(self) -> Collection:
