@@ -36,6 +36,21 @@ Number = Union[int, float]
 
 
 def clamp(target: Number, low_limit: Number, hi_limit: Number) -> Number:
+    """ Clamps input target into the range [low_limit, high_limit]
+
+    @param target: Number
+    @param low_limit: Number, must be <= hi_limit
+    @param hi_limit: Number, must be >= low_limit
+    @return:  Number in range [low_limit, high_limit]
+
+    DocTests
+    >>> clamp(10, 1, 100)
+    10
+    >>> clamp(1, 10, 20)
+    10
+    >>> clamp(100, 1, 10)
+    10
+    """
     return min(max(target, low_limit), hi_limit)
 
 
