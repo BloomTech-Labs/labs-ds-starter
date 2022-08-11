@@ -7,17 +7,17 @@ from app.validation import default_query, default_update, default_user
 
 
 API = FastAPI(
-    title='BloomTech Labs DS API Template',
+    title="BloomTech Labs DS API Template",
     version="0.0.1",
-    docs_url='/',
+    docs_url="/",
 )
 API.db = MongoDB()
 API.add_middleware(
     CORSMiddleware,
-    allow_origins=['*'],
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=['*'],
-    allow_headers=['*'],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
